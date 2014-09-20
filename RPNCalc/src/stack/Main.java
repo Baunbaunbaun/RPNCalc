@@ -1,26 +1,22 @@
 package stack;
 
-import java.util.ArrayList;
+import calculator.BinaryAdd;
+import calculator.Calculator;
+import calculator.Token;
+import calculator.Value;
 
 public class Main {
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
 
-        ArrayList calc = new ArrayList();
+        LinkedListStack<Token> tokenStack = new LinkedListStack<Token>();
 
-        Object test1 = new Object();
-        Object test2 = new Object();
-        Object test3 = new Object();
+        Calculator cal = new Calculator();
 
-        MyStack TestStack = new MyStack();
+        tokenStack.push(new BinaryAdd());
+        tokenStack.push(new Value(2));
+        tokenStack.push(new Value(888));
 
-        calc.add(test1);
-        calc.add(test3);
-        calc.add(test2);
-
-        System.out.println(TestStack.empty());
-        System.out.println(TestStack.peek());
-
-
+        System.out.println(cal.evaluate(tokenStack));
     }
 }
